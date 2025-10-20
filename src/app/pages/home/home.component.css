@@ -44,3 +44,25 @@
         transform: perspective(1000px) rotateY(360deg);
     }
 }
+
+#cascada {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.45), 0 6px 18px rgba(255, 255, 255, 0.35), 0 0 30px rgba(255, 255, 255, 0.18);
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.45), 0 6px 18px rgba(255, 255, 255, 0.35), 0 0 30px rgba(255, 255, 255, 0.18);
+}
+
+#review-logo {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}

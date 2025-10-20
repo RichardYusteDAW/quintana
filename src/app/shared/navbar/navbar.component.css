@@ -1,9 +1,15 @@
 :host {
+    --color: white;
+    --spark-glow: #fffdef;
+
     position: sticky;
     top: 0;
     z-index: 1000;
-    --color: white;
-    --spark-glow: #fffdef;
+}
+
+nav {
+    border-bottom: 2px solid white;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.45), 0 6px 18px rgba(255, 255, 255, 0.35), 0 0 30px rgba(255, 255, 255, 0.18);
 }
 
 #logo {
