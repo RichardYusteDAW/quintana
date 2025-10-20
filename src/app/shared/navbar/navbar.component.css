@@ -1,0 +1,102 @@
+:host {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    --color: white;
+    --spark-glow: #fffdef;
+}
+
+#logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+/**************** Sparkle Link Styles ****************/
+.sparkle-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    color: inherit;
+    text-decoration: none;
+    overflow: visible;
+
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: .25rem .5rem;
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background-color .3s ease;
+}
+
+.sparkle-link:hover,
+.sparkle-link:focus-visible {
+    color: var(--color);
+    border-color: var(--color);
+    box-shadow: 0 0 25px #fec1958c;
+    background: transparent;
+}
+
+/* Pseudo-elemento contenedor de las 6 estrellas */
+.sparkle-link::before {
+    --star-svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 784.11 815.53'><path fill='%23FFFDEF' d='M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z'/></svg>");
+
+    content: "";
+    position: absolute;
+    inset: -12px;
+    pointer-events: none;
+    z-index: 2;
+
+    background-image:
+        var(--star-svg),
+        var(--star-svg),
+        var(--star-svg),
+        var(--star-svg),
+        var(--star-svg),
+        var(--star-svg);
+
+    background-size: 25px, 15px, 5px, 8px, 15px, 5px;
+    background-repeat: no-repeat;
+    background-position:
+        20% 20%,
+        45% 45%,
+        40% 40%,
+        40% 20%,
+        45% 25%,
+        50% 5%;
+
+    opacity: 0;
+    visibility: hidden;
+    filter: drop-shadow(0 0 0 var(--spark-glow));
+    transition:
+        background-position 1s cubic-bezier(0.05, 0.83, 0.43, 0.96),
+        filter .3s ease,
+        opacity .25s ease,
+        visibility 0s linear .25s;
+}
+
+.sparkle-link:hover::before,
+.sparkle-link:focus-visible::before {
+    background-position:
+        -30% -80%,
+        10% -25%,
+        25% 55%,
+        80% 30%,
+        115% 25%,
+        60% 5%;
+
+    opacity: 1;
+    visibility: visible;
+    filter: drop-shadow(0 0 10px var(--spark-glow));
+    transition:
+        background-position 1s cubic-bezier(0.05, 0.83, 0.43, 0.96),
+        filter .3s ease,
+        opacity .25s ease,
+        visibility 0s;
+}
