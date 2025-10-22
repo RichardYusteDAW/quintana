@@ -25,24 +25,22 @@ label:active {
     aspect-ratio: 16/9;
 }
 
-#tv {
+#tv-container {
     position: relative;
-    padding: 0;
-    margin: 0;
 }
 
-#tv img {
+#tv-container img {
     position: relative;
     z-index: 2;
     pointer-events: none;
 }
 
-#tv iframe {
+#tv-container iframe {
     position: absolute;
-    top: 2%;
-    left: 0;
+    top: 5%;
+    left: 5%;
+    width: 90%;
 
-    visibility: hidden;
-    z-index: -1;
+    z-index: 1;
     aspect-ratio: 4/3;
 }

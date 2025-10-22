@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { TvComponent } from "./tv/tv.component";
+import { TvShowComponent } from "./tv-show/tv.-show.component";
 
 @Component({
   selector: 'app-shows',
-  imports: [RouterLink, TvComponent],
+  imports: [RouterLink, TvShowComponent],
   templateUrl: './shows.component.html',
   styleUrl: './shows.component.css'
 })

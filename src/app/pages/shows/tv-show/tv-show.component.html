@@ -1,0 +1,31 @@
+<div class="col-lg-4">
+
+    <h1>Magia en Televisión</h1>
+
+    <form class="d-flex flex-lg-column gap-3">
+        @for(show of shows; track show.title){
+        <label for="{{show.id}}">
+            <img class="radio" src="https://i.ytimg.com/vi/{{show.value}}/hqdefault.jpg" alt="{{show.title}}"
+                loading="lazy">
+        </label>
+        <input type="radio" [id]="show.id" name="video" [value]="show.value" (change)="showVideo($event)">
+        }
+    </form>
+
+    <a id="button" class="button mt-3" href="https://www.youtube.com/channel/UC3vcUnBDQFZbuszKPcLw2mQ">
+        Ver más
+    </a>
+</div>
+
+
+<div id="tv-container" class="col-lg-8 mt-4">
+    <div id="tv">
+        <img class="w-100" src="/img/tv.png" alt="tv-image">
+
+        <iframe [src]="videoUrlSafe" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+
+    </div>
+</div>
