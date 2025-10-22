@@ -1,0 +1,48 @@
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    max-width: 200px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+label:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px white;
+}
+
+label:active {
+    transform: scale(0.9);
+    transition: transform 0.1s;
+}
+
+.radio {
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+#tv {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+#tv img {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#tv iframe {
+    position: absolute;
+    top: 2%;
+    left: 0;
+
+    visibility: hidden;
+    z-index: -1;
+    aspect-ratio: 4/3;
+}

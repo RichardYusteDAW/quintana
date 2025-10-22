@@ -1,1 +1,15 @@
-<p>shows works!</p>
+<div class="container-fluid d-flex flex-column align-items-center text-white">
+
+    <div class="shows-container mt-4">
+        @for (show of shows; track show.title) {
+        <a class="show-link" routerLink="{{ show.path }}">
+            <img src="{{ show.image }}" alt="{{ show.title }}">
+            <h5 class="fs-5 fs-md-3">{{ show.title }}</h5>
+        </a>
+        }
+    </div>
+
+    <hr class="w-75 my-5">
+
+    <app-tv class="row mt-5"></app-tv>
+</div>
