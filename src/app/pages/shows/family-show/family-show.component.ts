@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-family-show',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './family-show.component.html',
   styleUrl: './family-show.component.css'
 })
-export class FamilyShowComponent {
-
-}
+export class FamilyShowComponent { }
