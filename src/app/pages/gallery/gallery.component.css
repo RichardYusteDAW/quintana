@@ -1,0 +1,45 @@
+.card {
+    position: relative;
+
+    width: 75%;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 3px solid white;
+    background-color: transparent;
+    color: white;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: black;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+img,
+h2 {
+    position: relative;
+    z-index: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow:
+        0 20px 40px rgba(255, 255, 255, 0.45),
+        0 6px 18px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(255, 255, 255, 0.18);
+}
+
+.card:hover h2 {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
