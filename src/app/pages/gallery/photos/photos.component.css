@@ -1,0 +1,17 @@
+#page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    align-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+    width: 100%;
+    max-width: 700px;
+}
