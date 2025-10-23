@@ -1,1 +1,10 @@
-<p>videos works!</p>
+<div id="page">
+    <div id="grid">
+        @for(video of videos; track video.id) {
+        <iframe class="video-card" [src]="video.safeUrl" [title]="video.title" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+        }
+    </div>
+</div>
