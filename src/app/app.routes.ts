@@ -10,6 +10,9 @@ export const routes: Routes = [
     { path: 'shows/corporate', loadComponent: () => import('./pages/shows/corporate-show/corporate-show.component').then(m => m.CorporateShowComponent) },
 
     { path: 'gallery', loadComponent: () => import('./pages/gallery/gallery.component').then(m => m.GalleryComponent) },
+    { path: 'gallery/photos', loadComponent: () => import('./pages/gallery/photos/photos.component').then(m => m.PhotosComponent) },
+    { path: 'gallery/videos', loadComponent: () => import('./pages/gallery/videos/videos.component').then(m => m.VideosComponent) },
+
     { path: 'blog', loadComponent: () => import('./pages/blog/blog.component').then(m => m.BlogComponent) },
     { path: 'contact', loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent) },
 
