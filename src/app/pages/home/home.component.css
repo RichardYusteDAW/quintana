@@ -26,7 +26,10 @@
     height: 100%;
     border: 2px solid white;
     border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.45), 0 6px 18px rgba(255, 255, 255, 0.35), 0 0 30px rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 20px 40px rgba(255, 255, 255, 0.45),
+        0 6px 18px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(255, 255, 255, 0.18);
     object-fit: cover;
     transition: 2s;
 }
