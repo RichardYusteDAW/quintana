@@ -59,7 +59,7 @@
                         </p>
                     </div>
 
-                    <button type="button" class="button" (click)="onSubmit()">
+                    <button type="button" class="button" [disabled]="isSubmitting" (click)="onSubmit()">
                         Contáctame
                     </button>
                 </form>
