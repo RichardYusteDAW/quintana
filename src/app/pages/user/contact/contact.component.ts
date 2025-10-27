@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { ContactForm } from '../../models/ContactForm';
-import { EmailService } from '../../services/email/email.service';
+import { ContactForm } from '../../../models/ContactForm';
+import { EmailService } from '../../../services/email/email.service';
 
 @Component({
   selector: 'app-contact',

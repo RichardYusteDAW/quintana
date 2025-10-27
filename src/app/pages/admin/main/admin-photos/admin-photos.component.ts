@@ -1,23 +1,22 @@
 import { Component } from '@angular/core';
-
-import { ImageService } from '../../services/image/image.service';
+import { ImageService } from '../../../../services/image/image.service';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-admin-photos',
   imports: [],
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  templateUrl: './admin-photos.component.html',
+  styleUrl: './admin-photos.component.css'
 })
-export class AdminComponent {
+export class AdminPhotosComponent {
   selectedFile: File | null = null;
 
   constructor(private imageService: ImageService) { }
 
-  onFileSelected(event: any) {
+  public onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (!this.selectedFile) {
       alert('Por favor, selecciona un archivo antes de subir.');
       return;
