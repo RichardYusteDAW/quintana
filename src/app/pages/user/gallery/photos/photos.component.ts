@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { PhotoCardComponent } from "./photo-card/photo-card.component";
+import { ImageData } from '../../../../models/ImageData';
+import { ImageService } from '../../../../services/image/image.service';
 
 @Component({
   selector: 'app-photos',
@@ -8,17 +11,26 @@ import { PhotoCardComponent } from "./photo-card/photo-card.component";
   styleUrl: './photos.component.css'
 })
 export class PhotosComponent {
-  photos: { link: string; alt: string }[] = [];
+  photos: ImageData[] = [];
+
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-    this.loadFotos();
+    this.getAllImages();
   }
 
-  private loadFotos() {
-    const totalPhotos = 26;
-    for (let i = 1; i <= totalPhotos; i++) {
-      const newPhoto = { link: `img/pictures/${i}.jpg`, alt: `Photo ${i}` };
-      this.photos.push(newPhoto);
-    }
+  /********** PRIVATE **********/
+  private getAllImages() {
+    this.imageService.getAll().subscribe({
+      next: (res: ImageData[]) => this.photos = res,
+      error: (err: any) => console.error('Error al obtener las imágenes:', err)
+    });
   }
+  // private loadFotos() {
+  //   const totalPhotos = 26;
+  //   for (let i = 1; i <= totalPhotos; i++) {
+  //     const newPhoto = { link: `img/pictures/${i}.jpg`, alt: `Photo ${i}` };
+  //     this.photos.push(newPhoto);
+  //   }
+  // }
 }

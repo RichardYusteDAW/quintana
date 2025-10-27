@@ -1,3 +1,8 @@
+@for(img of images; track img.url){
+<img [src]="img.url" [alt]="img.filename" width="200" />
+<p>{{ img.filename }}</p>
+}
+
 <form>
     <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" />
     <button type="button" class="button" (click)="onSubmit()">

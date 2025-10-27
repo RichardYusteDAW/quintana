@@ -1,7 +1,7 @@
 <div id="page">
     <div id="grid">
         @for(photo of photos; let i = $index; track i) {
-        <app-photo-card [img]="photo.link" [alt]="photo.alt"></app-photo-card>
+        <app-photo-card [img]="photo.url" [alt]="photo.filename"></app-photo-card>
         }
     </div>
 </div>
