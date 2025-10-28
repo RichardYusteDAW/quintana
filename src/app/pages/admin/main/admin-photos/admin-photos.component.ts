@@ -83,7 +83,11 @@ export class AdminPhotosComponent {
     formData.append('image', file!);
 
     this.imageService.upload(formData).subscribe({
-      next: res => alert('Imagen subida con éxito:'),
+      next: res => {
+        alert('Imagen subida con éxito:');
+        this.getAllImages();
+        fileInput.value = '';
+      },
       error: err => console.error('Error al subir la imagen:', err)
     });
   }
