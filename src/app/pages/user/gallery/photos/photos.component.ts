@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { PhotoCardComponent } from "./photo-card/photo-card.component";
-import { ImageData } from '../../../../models/ImageData';
+import { ImageRequest } from '../../../../models/ImageRequest';
 import { ImageService } from '../../../../services/image/image.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ImageService } from '../../../../services/image/image.service';
   styleUrl: './photos.component.css'
 })
 export class PhotosComponent {
-  photos: ImageData[] = [];
+  photos: ImageRequest[] = [];
 
   constructor(private imageService: ImageService) { }
 
@@ -22,7 +22,7 @@ export class PhotosComponent {
   /********** PRIVATE **********/
   private getAllImages() {
     this.imageService.getAll().subscribe({
-      next: (res: ImageData[]) => this.photos = res,
+      next: (res: ImageRequest[]) => this.photos = res,
       error: (err: any) => console.error('Error al obtener las imágenes:', err)
     });
   }

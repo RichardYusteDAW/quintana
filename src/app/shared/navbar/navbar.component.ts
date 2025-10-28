@@ -12,6 +12,6 @@ export class NavbarComponent {
   constructor(private router: Router) { }
 
   navigateAdmin() {
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin/login']);
   }
 }
