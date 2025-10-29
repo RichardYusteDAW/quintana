@@ -1,23 +1,24 @@
-<div class="row mt-4">
-    <div class="col-md-6 offset-md-3">
-        <div class="card bg-dark text-white border border-white rounded-3 p-3 shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title mb-3 text-center">Subir nueva imagen</h5>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-dark text-white border border-white rounded-3 p-3 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3 text-center">Subir nueva imagen</h5>
 
-                <form class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-2">
-                    <input #fileInput type="file" class="form-control bg-dark text-white border-light"
-                        accept="image/*" />
+                    <form class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-2">
+                        <input #fileInput type="file" class="form-control bg-dark text-white border-light"
+                            accept="image/*" />
 
-                    <button type="button" class="btn btn-success px-4 mt-2 mt-sm-0" (click)="uploadImage(fileInput)">
-                        <i class="fa-solid fa-upload me-2"></i> Subir
-                    </button>
-                </form>
+                        <button type="button" class="btn btn-success px-4 mt-2 mt-sm-0"
+                            (click)="uploadImage(fileInput)">
+                            <i class="fa-solid fa-upload me-2"></i> Subir
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
     <div class="row mt-4 border border-3 border-white rounded-3">
         <table class="table table-dark table-striped table-bordered border-white table-hover text-center align-middle">
             <thead>
