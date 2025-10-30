@@ -28,14 +28,13 @@ export class LoginComponent {
     this.validateForm();
 
     if (Object.keys(this.errors).length == 0) {
-      this.router.navigate(['/admin']);
-      // this.authService.login(this.loginCredentials).subscribe({
-      //   next: (res) => {
-      //     this.storeTokens(res);
-      //     this.router.navigate(['/admin']);
-      //   },
-      //   error: err => console.error(err)
-      // });
+      this.authService.login(this.loginCredentials).subscribe({
+        next: (res) => {
+          this.storeTokens(res);
+          this.router.navigate(['/admin']);
+        },
+        error: err => console.error(err)
+      });
     }
   }
 
@@ -51,7 +50,7 @@ export class LoginComponent {
   }
 
   private storeTokens(res: any) {
-    localStorage.setItem('access_token', res.access_token);
-    localStorage.setItem('refresh_token', res.refresh_token);
+    sessionStorage.setItem('accessToken', res.accessToken);
+    sessionStorage.setItem('refreshToken', res.refreshToken);
   }
 }
