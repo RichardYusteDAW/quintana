@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+
+import { RawVideo } from '../../../../models/RawVideo';
+import { Video } from '../../../../models/Video';
+import { VideoService } from '../../../../services/video/video.service';
 
 @Component({
   selector: 'app-videos',
@@ -8,23 +12,26 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrl: './videos.component.css'
 })
 export class VideosComponent {
-  rawVideos = [
-    { id: '3bqOTlCmi7k', title: 'Video 1' },
-    { id: '-6mDxEY9_3k', title: 'Video 2' },
-    { id: 'HZoxukNIIxE', title: 'Video 3' },
-    { id: 'H-QXT8TMMEw', title: 'Video 4' },
-    { id: 'eEVK5zDr-sk', title: 'Video 5' },
-    { id: '2U55bGGEFMY', title: 'Video 6' },
-    { id: 'tHmKPHN18pY', title: 'Video 7' },
-    { id: 'cSUeRTvge7g', title: 'Video 8' }
-  ]
 
-  videos: { id: string, title: string, safeUrl: SafeResourceUrl }[] = [];
+  rawVideos: RawVideo[] = [];
+  videos: Video[] = [];
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private videoService: VideoService) { }
 
   ngOnInit(): void {
-    this.sanitize();
+    this.getAllVideos();
+  }
+
+  private getAllVideos() {
+    this.videoService.getAll().subscribe({
+      next: (rawVideos: RawVideo[]) => {
+        this.rawVideos = rawVideos;
+        this.sanitize();
+      },
+      error: (error) => {
+        console.error('Error fetching videos:', error);
+      }
+    });
   }
 
   private sanitize() {

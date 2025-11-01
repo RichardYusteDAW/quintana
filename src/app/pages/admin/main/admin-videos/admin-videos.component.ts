@@ -2,7 +2,7 @@ import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { VideoService } from '../../../../services/video/video.service';
-import { Video } from '../../../../models/Video';
+import { RawVideo } from '../../../../models/RawVideo';
 import { EditingVideo } from '../../../../models/EditingVideo';
 
 @Component({
@@ -17,8 +17,8 @@ export class AdminVideosComponent {
   videoNameInput?: ElementRef<HTMLInputElement>;
   videoIdInput?: ElementRef<HTMLInputElement>;
 
-  videos: Video[] = [];
-  newVideo: Video | null = null;
+  videos: RawVideo[] = [];
+  newVideo: RawVideo | null = null;
   editingVideo: EditingVideo | null = null;
 
   constructor(private videoService: VideoService) { }
@@ -57,11 +57,11 @@ export class AdminVideosComponent {
   }
 
   /*EDITING*/
-  public startEdit(video: Video, index: number) {
+  public startEdit(rawVideo: RawVideo, index: number) {
     this.editingVideo = {
-      oldId: video.id,
+      oldId: rawVideo.id,
       newId: '',
-      oldName: video.name,
+      oldName: rawVideo.name,
       newName: ''
     };
 
