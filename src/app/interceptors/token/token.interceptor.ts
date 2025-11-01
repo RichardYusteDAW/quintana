@@ -1,8 +1,11 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { catchError, switchMap, throwError, EMPTY } from 'rxjs';
+
 import { AuthService } from '../../services/auth/auth.service';
+
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
 
@@ -13,9 +16,15 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   /********** VARIABLES **********/
   let isRetried = false;
 
-  /********** RUTAS EXCLUIDAS **********/
-  if (req.url.endsWith('/admin/login') || req.url.endsWith('/admin/refresh-token'))
-    return next(req);
+  /********** RUTAS Y MÉTODOS EXCLUIDOS **********/
+  const excluded = [
+    { url: '/email', methods: ['POST'] },
+    { url: '/images', methods: ['POST', 'PUT', 'DELETE'] },
+    { url: '/videos', methods: ['POST', 'PUT', 'DELETE'] }
+  ]
+
+  const isExcluded = excluded.some(rule => req.url.includes(rule.url) && rule.methods.includes(req.method));
+  if (isExcluded) return next(req);
 
 
   /********** FUNCIONES AUXILIARES **********/
