@@ -36,7 +36,7 @@ export class ContactComponent {
         },
         error: err => {
           alert('There was an error sending your message. Please try again later.');
-          console.log(err.message);
+          console.error(err.message);
         },
         complete: () => this.isSubmitting = false
       });

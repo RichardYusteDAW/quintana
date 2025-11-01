@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth/auth.guard';
 
 export const routes: Routes = [
     { path: 'home', loadComponent: () => import('./pages/user/home/home.component').then(m => m.HomeComponent) },
@@ -16,10 +17,10 @@ export const routes: Routes = [
     { path: 'blog', loadComponent: () => import('./pages/user/blog/blog.component').then(m => m.BlogComponent) },
     { path: 'contact', loadComponent: () => import('./pages/user/contact/contact.component').then(m => m.ContactComponent) },
 
-    { path: 'admin', loadComponent: () => import('./pages/admin/main/main.component').then(m => m.MainComponent) },
+    { path: 'admin', loadComponent: () => import('./pages/admin/main/main.component').then(m => m.MainComponent), canActivate: [authGuard] },
     { path: 'admin/login', loadComponent: () => import('./pages/admin/login/login.component').then(m => m.LoginComponent) },
-    { path: 'admin/photos', loadComponent: () => import('./pages/admin/main/admin-photos/admin-photos.component').then(m => m.AdminPhotosComponent) },
-    { path: 'admin/videos', loadComponent: () => import('./pages/admin/main/admin-videos/admin-videos.component').then(m => m.AdminVideosComponent) },
+    { path: 'admin/photos', loadComponent: () => import('./pages/admin/main/admin-photos/admin-photos.component').then(m => m.AdminPhotosComponent), canActivate: [authGuard] },
+    { path: 'admin/videos', loadComponent: () => import('./pages/admin/main/admin-videos/admin-videos.component').then(m => m.AdminVideosComponent), canActivate: [authGuard] },
 
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home' },

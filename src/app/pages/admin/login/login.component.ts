@@ -21,6 +21,10 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) { }
 
+  ngOnInit() {
+    if (sessionStorage.getItem('accessToken')) this.router.navigate(['/admin']);
+  }
+
 
   /********** PUBLIC **********/
   public onSubmit() {
@@ -29,7 +33,7 @@ export class LoginComponent {
 
     if (Object.keys(this.errors).length == 0) {
       this.authService.login(this.loginCredentials).subscribe({
-        next: (res) => {
+        next: res => {
           this.storeTokens(res);
           this.router.navigate(['/admin']);
         },
